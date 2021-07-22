@@ -1,0 +1,42 @@
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      partyType: "birthday",
+      entertainment: "clowns",
+      menu: "pizza and burgers",
+      venue: {
+        name: "Polly's Party Palace",
+        capacity: 120
+      }
+    };
+  }
+
+    render() {
+    return (
+      <div>
+        <Party type={this.state.partyType} ent={this.state.entertainment} venue={this.state.venue} menu={this.state.menu}/>
+      </div>
+    );
+  }
+}
+
+class Party extends React.Component {
+  constructor(props) {
+   super(props);
+};
+
+render() {
+  return (
+    <div>
+      <h3>Party Time!</h3>
+      <p>This {this.props.type} party will be held at {this.props.venue.name} with a maximum capacity of {this.props.capacity}</p>
+      <p>Featured entertainment: {this.props.ent}!</p>
+      <p>Menu: {this.props.menu}!!</p>
+     </div>
+    );
+   }
+ }
+ReactDOM.render(<App />, document.getElementById('root'));
